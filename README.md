@@ -1,5 +1,6 @@
 # KI-M4N BLUE PILL / MEDUSA PROJECT
 🟦 SKIN v0.1 — Human‑Centric Defensive Operations Platform
+
 CREATED BY KI-MAN SECURITY RESEARCHER
 
 Fast. Local. Human‑Readable.
