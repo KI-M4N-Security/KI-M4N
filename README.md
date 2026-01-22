@@ -1,5 +1,6 @@
 # KI-M4N BLUE PILL / MEDUSA PROJECT
 🟦 SKIN v0.1 — Human‑Centric Defensive Operations Platform
+CREATED BY KI-MAN SECURITY RESEARCHER
 
 Fast. Local. Human‑Readable.
 SKIN is a lightweight defensive operations stack for operators who want answers, not dashboards full of noise.
@@ -77,6 +78,7 @@ skin/
 │  └─ skin-v0.1.ndjson
 │
 └─ screenshots/
+
 🚀 Quick Start
 1️⃣ Clone
 git clone https://github.com/yourname/skin.git
