@@ -1,11 +1,479 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Terminal from '../components/Terminal.jsx';
+import HeroTitle from '../components/HeroTitle.jsx';
+import MatrixRain from '../components/MatrixRain.jsx';
+import ContactModal from '../components/ContactModal.jsx';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="KIM4N | Cyber Operator">
+	<main class="max-w-7xl mx-auto px-6 py-20">
+		
+		<!-- 1. LANDING: THE TERMINAL -->
+		<section id="home" class="relative h-screen overflow-hidden bg-black mb-32 border-b border-[#00FF00]/30">
+    
+   			<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+				<div class="flex items-center gap-2 text-[#00FF00] mb-6 tracking-widest text-xs md:text-sm font-bold uppercase font-mono">
+					<span class="w-2 h-2 bg-[#00FF00] rounded-full animate-pulse"></span>
+					System Status: Online // Connected
+				</div>
+				
+				<div class="mb-8">
+					<Terminal client:load />
+				</div>
+
+				<HeroTitle client:load />
+				<div class="fixed inset-0 h-full w-full bg-black"></div>
+					<MatrixRain client:load />
+				<div class="fixed inset-0 h-full w-full bg-black bg-[radial-gradient(#0f380f_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+				
+
+				<p class="text-xl md:text-2xl text-[#00FF00]/80 mb-12 max-w-3xl leading-relaxed font-mono border-l-4 border-[#00FF00] pl-6 text-left inline-block">
+					> Multiplatform Developer / Ethical Hacker & Security Specialist.<br/>
+					> <span class="text-white">Bridging the gap between Physical Security & Digital Defense.</span>
+				</p>
+				
+                <div class="flex flex-col gap-0">
+					<a href="#projects" class="huge-link" data-hover-text=">> SELECT VECTOR">
+						VIEW OPERATIONS
+					</a>
+						
+					<span class="text-[#00FF00] gap-20 font-mono text-sm">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+					<a href="#contact" class="huge-link" data-hover-text=">> INITIATE CONTACT">
+						ESTABLISH COMMS
+					</a>
+				</div>		
+			</div>
+		</section>
+
+		<!-- 2. ABOUT: THE OPERATOR -->
+		<section id="about" class="mb-32">
+			<div class="flex flex-col items-center gap-4 mb-8 text-center">
+				<h3 class="text-3xl md:text-4xl font-bold text-white font-mono">Why I'm THE BEST solution?</h3>
+				<h3 class="text-3xl md:text-4xl font-bold text-white font-mono">WE ARE GOING TO WIN/WORK TOGETHER</h3>
+			</div>
+			
+			<div class="grid md:grid-cols-12 gap-12">
+				<div class="md:col-span-10 md:col-start-2 text-[#00FF00]/70 text-lg leading-relaxed space-y-6 font-mono bg-black/70 backdrop-blur-sm p-8 rounded-xl border border-[#00FF00]/20">
+					<p>
+						<strong class="text-[#00FF00]">From Gates to Firewalls.</strong> With over a decade of experience in physical security management (Securitas) and a Master's in Cybersecurity, I bring a comprehensive approach to protection.
+					</p>
+					<p>
+						I don't just look at code; I look at the whole perimeter. From leading teams of 10+ in high-pressure physical environments to reverse-engineering malware, I ensure safety across all domains.
+					</p>
+					<div class="grid md:grid-cols-12 gap-8 mt-12 border-t border-[#00FF00]/20 pt-12">
+    
+    <div class="md:col-span-7 space-y-6">
+        <h3 class="text-2xl font-bold text-white font-mono flex items-center gap-2">
+            <span class="text-[#00FF00]">></span> THE CONVERGENCE ADVANTAGE
+        </h3>
+        <p class="text-[#00FF00]/80 font-mono leading-relaxed">
+            Most security professionals see only one layer.<br/>
+            <span class="text-white">I see the entire battlefield.</span>
+        </p>
+        <p class="text-[#00FF00]/80 font-mono leading-relaxed">
+            Cybersecurity does not exist in isolation.<br/>
+            Networks live in buildings. Systems depend on people. Access begins with proximity.
+        </p>
+        <p class="text-[#00FF00]/80 font-mono leading-relaxed">
+            With over a decade leading physical security operations for critical infrastructure — combined with advanced offensive and defensive cyber expertise — I operate where others fail: <span class="text-[#00FFFF]">between domains</span>.
+        </p>
+        <p class="text-[#00FF00]/80 font-mono leading-relaxed">
+            I don’t just find vulnerabilities.<br/>
+            I design the response, lead the fix, and pressure-test it under real conditions.
+        </p>
+        <p class="text-[#00FF00] font-bold font-mono leading-relaxed">
+            Red Team aggression. Blue Team discipline. One operator. One vision.
+        </p>
+    </div>
+    <div class="md:col-span-5 bg-[#00FF00]/5 border border-[#00FF00]/30 p-6 rounded-sm relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#00FF00]/5 to-transparent h-20 w-full animate-scan"></div>
+        
+        <h4 class="text-xs font-bold text-[#00FF00] tracking-[0.3em] mb-6 uppercase">Operational Capability Matrix</h4>
+        
+        <div class="space-y-6">
+            <div class="group" data-hover-text=">> NO THEORY. ONLY EXECUTION.">
+                <div class="flex justify-between text-[10px] mb-2 font-mono">
+                    <span class="text-white">AGGRESSIVE AUDITING (RED)</span>
+                    <span class="text-[#00FF00]">[ ELITE ]</span>
+                </div>
+                <div class="flex gap-1">
+                    <div class="h-1.5 w-full bg-[#00FF00] shadow-[0_0_8px_#00FF00]"></div>
+                    <div class="h-1.5 w-full bg-[#00FF00] shadow-[0_0_8px_#00FF00]"></div>
+                    <div class="h-1.5 w-full bg-[#00FF00] shadow-[0_0_8px_#00FF00]"></div>
+                    <div class="h-1.5 w-full bg-[#00FF00] shadow-[0_0_8px_#00FF00]"></div>
+                    <div class="h-1.5 w-1/2 bg-[#00FF00]/20"></div>
+                </div>
+                <p class="text-[9px] text-[#00FF00]/50 mt-1 font-mono italic">Advanced Fuzzing, Reverse Engineering, Social Engineering.</p>
+            </div>
+
+            <div class="group" data-hover-text=">> ACCESS GRANTED">
+                <div class="flex justify-between text-[10px] mb-2 font-mono">
+                    <span class="text-white">STRATEGIC DEFENSE (BLUE)</span>
+                    <span class="text-[#00FFFF]">[ GUARANTEED ]</span>
+                </div>
+                <div class="flex gap-1">
+                    <div class="h-1.5 w-full bg-[#00FFFF] shadow-[0_0_8px_#00FFFF]"></div>
+                    <div class="h-1.5 w-full bg-[#00FFFF] shadow-[0_0_8px_#00FFFF]"></div>
+                    <div class="h-1.5 w-full bg-[#00FFFF] shadow-[0_0_8px_#00FFFF]"></div>
+                    <div class="h-1.5 w-full bg-[#00FFFF] shadow-[0_0_8px_#00FFFF]"></div>
+                    <div class="h-1.5 w-full bg-[#00FFFF] shadow-[0_0_8px_#00FFFF]"></div>
+                </div>
+                <p class="text-[9px] text-[#00FFFF]/50 mt-1 font-mono italic">Physical Ops, Crisis Management, Team Leadership (10+ Personnel).</p>
+            </div>
+
+            <div class="group" data-hover-text=">> OPERATIONAL MODE">
+                <div class="flex justify-between text-[10px] mb-2 font-mono">
+                    <span class="text-white">MULTI-PLATFORM DEPLOYMENT</span>
+                    <span class="text-white">[ ACTIVE ]</span>
+                </div>
+                <div class="flex gap-1">
+                    <div class="h-1.5 w-full bg-white shadow-[0_0_8px_#fff]"></div>
+                    <div class="h-1.5 w-full bg-white shadow-[0_0_8px_#fff]"></div>
+                    <div class="h-1.5 w-full bg-white shadow-[0_0_8px_#fff]"></div>
+                    <div class="h-1.5 w-1/3 bg-white/20"></div>
+                    <div class="h-1.5 w-1/2 bg-white/10"></div>
+                </div>
+                <p class="text-[9px] text-white/50 mt-1 font-mono italic">Fullstack Java, Python, Android Studio, Astro/React.</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+			</div>
+		</section>
+
+		<!-- 3. PROJECTS: OPERATIONS -->
+		<section id="projects" class="mb-32">
+			<div class="flex justify-center items-center gap-4 mb-12">
+				<h3 class="text-3xl md:text-4xl font-bold text-white font-mono">OPERATIONS</h3>
+			</div>
+
+			<div class="cards mx-auto">
+				<article class="card">
+					<div>
+						<div class="pill-icon"><i class="fas fa-capsules"></i></div>
+						<h2>⚫ KI-MAN SECURITY OPTIONAL: BLACK PILL (RESTRICTED)</h2>
+						<p>
+							Offensive & defensive security engineering<br/>
+							--> Physical + digital convergence<br/>
+							--> Tools built from real operations, not theory<br/><br/>
+							No demos. No marketing.<br/>
+							Reserved for critical infrastructure, crisis response, and high-risk environments.<br/>
+							Access granted by conversation — not clicks.
+						</p>
+						<a href="#contact" data-hover-text=">> INITIATE CONTACT">establish secure comms →</a>
+					</div>
+				</article>
+
+				<article class="card">
+					<div>
+						<div class="pill-icon"><i class="fas fa-capsules"></i></div>
+						<h2>WHY I HAVE TO CHOOSE PILL?</h2>
+						<p>
+							Security isn’t one-size-fits-all.<br/>
+							Some teams need pressure.<br/>
+							Some need protection.<br/>
+							I don’t sell theory — I deploy reality.<br/>
+							Choose how deep you want to go, and I’ll handle the rest.
+						</p>
+						<a href="#about" data-hover-text=">> ACCESS GRANTED">Read more</a>
+					</div>
+				</article>
+
+				<article class="card">
+					<div>
+						<div class="pill-icon"><i class="fas fa-capsules"></i></div>
+						<h2>🔴 KI-MAN / CLAW — RED PILL</h2>
+						<p>
+							<strong>(Offensive / Aggressive)</strong><br/>
+							See how systems actually break.<br/><br/>
+							Built for teams that want the truth — not comfort.
+							This path simulates real adversaries, real pressure, and real failure points.<br/>
+							Expect noise. Expect friction. Expect results.<br/><br/>
+							<strong>Capabilities:</strong><br/>
+							Bug Bounty & Adversarial Testing<br/>
+							Web, Network & Mobile Pentesting<br/>
+							Offensive Tooling & Custom Exploits<br/>
+							Social Engineering & Attack Simulation<br/>
+							<em>Aggressive by design.</em>
+						</p>
+						<a href="#contact" data-hover-text=">> SELECT VECTOR">take the red pill →</a>
+					</div>
+				</article>
+
+				<article class="card">
+					<div>
+						<div class="pill-icon"><i class="fas fa-capsules"></i></div>
+						<h2>🔵 KI-MAN / SKIN — BLUE PILL</h2>
+						<p>
+							<strong>(Defensive / Stability)</strong><br/>
+							Control the surface. Secure the core.<br/><br/>
+							A defensive security appliance you deploy, scale, and trust.
+							Designed for visibility, resilience, and long-term stability — without complexity.<br/><br/>
+							Network Visibility & Monitoring<br/>
+							Centralized Logs & Alerting<br/>
+							Defensive Hardening<br/>
+							Small Enterprise & Infrastructure Security<br/>
+							<em>Quiet. Reliable. Always watching.</em>
+						</p>
+						<a href="#contact" data-hover-text=">> SELECT VECTOR">take the blue pill →</a>
+					</div>
+				</article>
+			</div>
+            <br>
+            <br>
+
+			<!-- Captive Portal Hook -->
+			<div class="mt-12 p-8 border border-[#00FFFF]/30 bg-[#00FFFF]/5 rounded relative overflow-hidden text-center">
+				<div class="relative z-10">
+					<h4 class="text-2xl font-bold text-[#00FFFF] mb-2 font-mono">CAPTIVE PORTAL SIMULATION</h4>
+					<p class="text-[#00FFFF]/70 mb-6 max-w-2xl mx-auto">
+						Want to see how I can harvest credentials via a rogue ESP32? I built a simulation of the attack vector.
+					</p>
+					<button class="captive-portal-button bg-[#00FFFF]/10 border border-[#00FFFF] text-[#00FFFF] px-6 py-2 hover:bg-[#00FFFF] hover:text-black transition-all font-bold font-mono" data-hover-text=">> OPERATIONAL MODE">
+						LAUNCH SIMULATION
+					</button>
+				</div>
+				<div class="absolute -right-10 -bottom-10 opacity-20 text-[#00FFFF]">
+					<svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+				</div>
+			</div>
+		</section>
+
+		<!-- 4. CONTACT -->
+		<section id="contact" class="mb-20 py-20 border-t border-[#00FF00]/30 flex justify-center">
+			<div class="w-full max-w-4xl bg-black/70 backdrop-blur-sm p-12 rounded-xl border border-[#00FF00]/20 text-center">
+				<h2 class="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight font-mono">ENCRYPTED COMMS</h2>
+				<p class="text-[#00FF00]/60 mb-12 text-lg font-mono">Ready to secure your perimeter? Initiate the handshake.</p>
+				
+				<ContactModal client:load />
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<style>
+
+    /* Custom Cyberpunk Styles */
+    .huge-link {
+        font-size: 3rem;
+        font-weight: 900;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(0, 255, 0, 0.3);
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .huge-link:hover {
+        color: #00FF00;
+        text-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+        -webkit-text-stroke: 0px;
+        transform: scale(1.05);
+    }
+
+    /* Mobile adjustments for Huge Nav */
+    @media (max-width: 768px) {
+        .huge-link {
+            font-size: 2rem;
+        }
+    }
+
+	@keyframes scan {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(300%); }
+    }
+    .animate-scan {
+        animation: scan 4s linear infinite;
+    }
+
+	/* OPERATIONS CARDS STYLES */
+	.cards {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+	@media (min-width: 768px) {
+		.cards {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.card {
+		position: relative;
+		border-radius: 4px;
+		background: #050505;
+		min-height: 450px;
+		color: white;
+		font-family: 'Fira Code', monospace;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		transition: all 0.3s ease;
+
+		/* Colors */
+		&:nth-child(1) { --moon-clr: #808080; } /* Black Pill (Grey glow) */
+		&:nth-child(2) { --moon-clr: #a65f00; } /* Orange */
+		&:nth-child(3) { --moon-clr: #9f0712; } /* Red */
+		&:nth-child(4) { --moon-clr: #00598a; } /* Blue */
+
+		& > div {
+			position: relative;
+			z-index: 2;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			padding: 1.5rem;
+			background: linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(0,0,0,0) 100%);
+		}
+
+		/* Hover Effect */
+		&:hover {
+			border-color: var(--moon-clr);
+			box-shadow: 0 0 25px -5px var(--moon-clr);
+			transform: translateY(-5px);
+		}
+
+		& .pill-icon {
+			font-size: 2.5rem;
+			color: #444;
+			margin-bottom: 1rem;
+            text-align: center;
+			transition: all 0.3s ease;
+		}
+		
+		&:hover .pill-icon {
+			color: var(--moon-clr);
+			filter: drop-shadow(0 0 10px var(--moon-clr));
+			transform: scale(1.1);
+		}
+
+		& h2 {
+			font-size: 1.1rem;
+			font-weight: bold;
+			color: white;
+			margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+			transition: color 0.3s;
+		}
+		
+		&:hover h2 {
+			color: var(--moon-clr);
+			text-shadow: 0 0 5px var(--moon-clr);
+		}
+
+		& p {
+			font-size: 0.85rem;
+			line-height: 1.5;
+			color: #aaa;
+			flex-grow: 1;
+			margin-bottom: 1.5rem;
+		}
+
+		& a {
+			margin-top: auto;
+			background-color: transparent;
+			color: var(--moon-clr);
+			font-size: 0.8rem;
+			text-transform: uppercase;
+			padding: 0.5rem;
+			text-decoration: none;
+			border: 1px solid var(--moon-clr);
+			transition: all 0.3s ease;
+			text-align: center;
+            font-weight: bold;
+            display: block;
+
+			&:hover {
+				background-color: var(--moon-clr);
+				color: white;
+				box-shadow: 0 0 20px var(--moon-clr);
+			}
+		}
+	}
+
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+    @keyframes flicker {
+		0% { opacity: 0.8; }
+		5% { opacity: 1; }
+		10% { opacity: 0.85; }
+		15% { opacity: 0.95; }
+		20% { opacity: 0.8; }
+		100% { opacity: 1; }
+	}
+
+    /* --- HOVER TEXT STYLES --- */
+
+    /* For Hero Links */
+    .huge-link[data-hover-text]:hover::after {
+        content: attr(data-hover-text);
+        position: absolute;
+        left: 105%;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 4rem;
+        font-weight: 400;
+        color: #00FFFF;
+        text-shadow: 0 0 10px #ff0000;
+        -webkit-text-stroke: 0;
+        white-space: nowrap;
+        animation: flicker 1.5s infinite;
+        pointer-events: none;
+    }
+
+    /* For Capability Matrix */
+    .group[data-hover-text] {
+        position: relative;
+    }
+    .group[data-hover-text]:hover::after {
+        content: attr(data-hover-text);
+        position: absolute;
+        top: -5px;
+        right: 0;
+        background: #00FF00;
+        color: black;
+        font-size: 25px;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 2px;
+        white-space: nowrap;
+        opacity: 0;
+        animation: fadeIn 0.3s forwards;
+        z-index: 10;
+    }
+
+    /* For Card & Simulation Buttons */
+    .card a[data-hover-text],
+    .captive-portal-button[data-hover-text] {
+        position: relative;
+    }
+    .card a[data-hover-text]:hover::before,
+    .captive-portal-button[data-hover-text]:hover::before {
+        content: attr(data-hover-text);
+        position: absolute;
+        bottom: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: black;
+        padding: 4px 8px;
+        font-size: 10px;
+        white-space: nowrap;
+        border-radius: 2px;
+        opacity: 0;
+        animation: fadeIn 0.3s forwards;
+        z-index: 10;
+    }
+    .card a[data-hover-text]:hover::before {
+        color: var(--moon-clr);
+        border: 1px solid var(--moon-clr);
+    }
+    .captive-portal-button[data-hover-text]:hover::before {
+        color: #00FFFF;
+        border: 1px solid #a6ff00;
+    }
+</style>

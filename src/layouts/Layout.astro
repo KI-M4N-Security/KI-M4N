@@ -1,22 +1,110 @@
+---
+import Header from '../components/Header.jsx';
+import MatrixRain from '../components/MatrixRain.jsx';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark bg-matrix-black font-mono">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content="Fran M. Vazquez - Ethical Hacker Portfolio" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+        <!-- Import a tech-looking font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+        <!-- FontAwesome for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	</head>
-	<body>
-		<slot />
+	<body class="bg-[#000000] text-[#00FF00] font-mono selection:bg-[#00FF00] selection:text-black overflow-x-hidden flex flex-col min-h-screen">
+		<!-- Background Layers -->
+		
+		
+		<Header client:load />
+		
+		<!-- CRT Overlay Effects -->
+		<div class="fixed inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]"></div>
+		<div class="fixed inset-0 pointer-events-none animate-flicker bg-white opacity-[0.02]"></div>
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<footer class="text-center py-6 border-t border-[#00FF00]/20 text-[#00FF00]/60 text-xs font-mono">
+			© 2026 Fran M. Vazquez | Alicante | Own car/moto for on-site ops
+		</footer>
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		--accent: 0, 255, 0;
+	}
+	/* Fallback for dark mode if Tailwind fails */
 	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+		background-color: #000000;
+		color: #00ff00;
+		font-family: 'Fira Code', monospace;
+	}
+	.font-mono {
+		font-family: 'Fira Code', monospace;
+	}
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #000;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #1a4d1a;
+        border: 1px solid #00ff00;
+    }
+
+	@keyframes flicker {
+		0% { opacity: 0.02; }
+		5% { opacity: 0.05; }
+		10% { opacity: 0.02; }
+		15% { opacity: 0.06; }
+		20% { opacity: 0.02; }
+		100% { opacity: 0.02; }
+	}
+	.animate-flicker {
+		animation: flicker 0.15s infinite;
+	}
+
+	/* Custom Cyberpunk Styles */
+	.huge-link {
+		font-size: 3rem;
+		font-weight: 900;
+		color: transparent;
+		-webkit-text-stroke: 1px rgba(0, 255, 0, 0.3);
+		text-transform: uppercase;
+		transition: all 0.3s ease;
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.huge-link:hover {
+		color: #00FF00;
+		text-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+		-webkit-text-stroke: 0px;
+		transform: scale(1.05);
+	}
+
+	/* Mobile adjustments for Huge Nav */
+	@media (max-width: 768px) {
+		.huge-link {
+			font-size: 2rem;
+		}
 	}
 </style>
