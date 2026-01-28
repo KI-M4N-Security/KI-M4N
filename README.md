@@ -83,6 +83,7 @@ skin/
 1️⃣ Clone
 git clone https://github.com/yourname/skin.git
 cd skin
+
 2️⃣ Configure
 
 Edit .env if needed (defaults are safe).
