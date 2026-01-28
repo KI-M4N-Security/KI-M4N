@@ -10,6 +10,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
+  site:"https://Ki-M4N.github.io",
+  base:"KI-M4N",
+    
+  
 
   integrations: [react()]
 });
