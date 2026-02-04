@@ -371,7 +371,7 @@ export default function ContactModal() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="text-[#00FF00]/70 text-[10px] uppercase block mb-2 tracking-widest"> ! SOURCE_ID (Email)</label>
-                      <input type="email" placeholder="operator@cybersphere.com" className="w-full bg-black/80 border border-[#00FF00]/30 p-3 text-[#00FF00] text-sm focus:border-[#00FF00] outline-none" required />
+                      <input type="email" placeholder="k-im4n-security@proton.me" className="w-full bg-black/80 border border-[#00FF00]/30 p-3 text-[#00FF00] text-sm focus:border-[#00FF00] outline-none" required />
                     </div>
                     <div>
                       <label className="text-[#00FF00]/70 text-[10px] uppercase block mb-2 tracking-widest"> ! HANDSHAKE_PRIORITY</label>
