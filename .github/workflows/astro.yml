@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ https://KI-M4N-Security.github.io/KI-M4N/ }}
+      url: ${{ https://ki-m4n-security.github.io/KI-M4N/ }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
