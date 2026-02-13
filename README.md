@@ -86,3 +86,5 @@ No trackers. No dark patterns. No nonsense.
 
 **Fran M. Vázquez**  
 App / Web Developer · Cybersecurity Specialist  
+<script src="https://liberapay.com/K-im4n/widgets/button.js"></script>
+<noscript><a href="https://liberapay.com/K-im4n/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
