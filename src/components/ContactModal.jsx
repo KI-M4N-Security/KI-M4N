@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+const WORKER_URL = 'https://kim4n-contact-worker.franprocaset.workers.dev';
+
 const glowingStyles = `
   @import url("https://fonts.googleapis.com/css?family=Raleway");
 
@@ -313,6 +315,52 @@ const ALLIGATOR_ASCII = `
 export default function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [displayedAscii, setDisplayedAscii] = useState('');
+  
+  const [formData, setFormData] = useState({
+    email: '',
+    priority: 'MISSION_CRITICAL',
+    message: ''
+  });
+  const [submitStatus, setSubmitStatus] = useState('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitStatus('loading');
+    setStatusMessage('TRANSMITTING PAYLOAD...');
+    
+    try {
+      const response = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        setSubmitStatus('success');
+        setStatusMessage('PAYLOAD TRANSMITTED SUCCESSFULLY');
+        setFormData({ email: '', priority: 'MISSION_CRITICAL', message: '' });
+        setTimeout(() => {
+          setIsOpen(false);
+          setSubmitStatus('idle');
+          setStatusMessage('');
+        }, 2000);
+      } else {
+        setSubmitStatus('error');
+        setStatusMessage(result.error || 'TRANSMISSION FAILED');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setStatusMessage('CONNECTION ERROR - RETRY');
+    }
+  };
 
   useEffect(() => {
     if (!isOpen) {
@@ -352,9 +400,11 @@ export default function ContactModal() {
           <div className="relative w-full max-w-3xl border border-[#00FF00]/40 bg-black overflow-hidden shadow-[0_0_50px_rgba(0,255,0,0.1)]">
                         
             <div className="relative z-10 bg-black/60 backdrop-blur-sm">
-              <div className="bg-[#00FF00]/10 border-b border-[#00FF00]/30 px-4 py-2 flex justify-between items-center font-mono text-[10px] uppercase text-[#00FF00]">
+                <div className="bg-[#00FF00]/10 border-b border-[#00FF00]/30 px-4 py-2 flex justify-between items-center font-mono text-[10px] uppercase text-[#00FF00]">
                 <span>Terminal: Secure_Handshake_v2.1</span>
-                <span className="animate-pulse">Status: Handshaking...</span>
+                <span className={`animate-pulse ${submitStatus === 'loading' ? 'text-yellow-400' : submitStatus === 'success' ? 'text-[#00FF00]' : submitStatus === 'error' ? 'text-red-500' : ''}`}>
+                  {submitStatus === 'loading' ? 'TRANSMITTING...' : submitStatus === 'success' ? 'SUCCESS' : submitStatus === 'error' ? 'ERROR' : 'Status: Handshaking...'}
+                </span>
               </div>
 
               <div className="p-8 space-y-6">
@@ -367,30 +417,73 @@ export default function ContactModal() {
                   </div>
                 </div>
 
-                <form className="space-y-4 font-mono relative z-20" onSubmit={(e) => { e.preventDefault(); alert('Message sent!'); setIsOpen(false); }}>
+                <form className="space-y-4 font-mono relative z-20" onSubmit={handleSubmit}>
+                  {submitStatus === 'success' && (
+                    <div className="bg-[#00FF00]/20 border border-[#00FF00] p-4 text-center">
+                      <span className="text-[#00FF00] font-bold text-sm">✓ {statusMessage}</span>
+                    </div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <div className="bg-red-500/20 border border-red-500 p-4 text-center">
+                      <span className="text-red-500 font-bold text-sm">✗ {statusMessage}</span>
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="text-[#00FF00]/70 text-[10px] uppercase block mb-2 tracking-widest"> ! SOURCE_ID (Email)</label>
-                      <input type="email" placeholder="k-im4n-security@proton.me" className="w-full bg-black/80 border border-[#00FF00]/30 p-3 text-[#00FF00] text-sm focus:border-[#00FF00] outline-none" required />
+                      <input 
+                        type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="k-im4n-security@proton.me" 
+                        className="w-full bg-black/80 border border-[#00FF00]/30 p-3 text-[#00FF00] text-sm focus:border-[#00FF00] outline-none" 
+                        required 
+                      />
                     </div>
                     <div>
                       <label className="text-[#00FF00]/70 text-[10px] uppercase block mb-2 tracking-widest"> ! HANDSHAKE_PRIORITY</label>
-                      <select className="w-full bg-black/80 border border-[#00FF00]/30 p-3 text-[#00FF00] text-sm outline-none cursor-pointer">
-                        <option>MISSION_CRITICAL</option>
-                        <option>SYSTEM_AUDIT</option>
-                        <option>COLLABORATION</option>
-                        <option>GENERAL BREEFING</option>
+                      <select 
+                        name="priority"
+                        value={formData.priority}
+                        onChange={handleInputChange}
+                        className="w-full bg-black/80 border border-[#00FF00]/30 p-3 text-[#00FF00] text-sm outline-none cursor-pointer"
+                      >
+                        <option value="MISSION_CRITICAL">MISSION_CRITICAL</option>
+                        <option value="SYSTEM_AUDIT">SYSTEM_AUDIT</option>
+                        <option value="COLLABORATION">COLLABORATION</option>
+                        <option value="GENERAL BRIEFING">GENERAL BRIEFING</option>
                       </select>
                     </div>
                   </div>
                   <div>
                     <label className="text-[#00FF00]/70 text-[10px] uppercase block mb-2 tracking-widest"> ! PAYLOAD (Message)</label>
-                    <textarea rows="4" placeholder="Describe your mission, project, or collaboration interest..." className="w-full bg-black/80 border border-[#00FF00]/30 p-4 text-[#00FF00] text-sm focus:border-[#00FF00] outline-none resize-none" required></textarea>
+                    <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows="4" 
+                      placeholder="Describe your mission, project, or collaboration interest..." 
+                      className="w-full bg-black/80 border border-[#00FF00]/30 p-4 text-[#00FF00] text-sm focus:border-[#00FF00] outline-none resize-none" 
+                      required
+                    ></textarea>
                   </div>
                   
                   <div className="flex gap-4">
-                    <button type="submit" className="flex-1 bg-[#00FF00] text-black font-bold py-3 uppercase tracking-widest text-xs hover:bg-white transition-all">Transmit Payload</button>
-                    <button type="button" onClick={() => setIsOpen(false)} className="px-6 py-3 border border-red-500 text-red-500 uppercase tracking-widest text-xs font-bold hover:bg-red-500/10">Abort.Comunication</button>
+                    <button 
+                      type="submit" 
+                      disabled={submitStatus === 'loading'}
+                      className={`flex-1 bg-[#00FF00] text-black font-bold py-3 uppercase tracking-widest text-xs hover:bg-white transition-all ${submitStatus === 'loading' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    >
+                      {submitStatus === 'loading' ? 'TRANSMITTING...' : 'Transmit Payload'}
+                    </button>
+                    <button 
+                      type="button" 
+                      onClick={() => { setIsOpen(false); setSubmitStatus('idle'); setFormData({ email: '', priority: 'MISSION_CRITICAL', message: '' }); }} 
+                      className="px-6 py-3 border border-red-500 text-red-500 uppercase tracking-widest text-xs font-bold hover:bg-red-500/10"
+                    >
+                      Abort.Comunication
+                    </button>
                   </div>
                   
 
