@@ -13,9 +13,26 @@ const tools = [
   { name: 'Hashcat', category: 'Red Ops', desc: 'Advanced password recovery and cracking.', color: '#FF3333' },
   { name: 'Docker', category: 'Dev/Ops', desc: 'Containerization for consistent environments.', color: '#2496ED' },
   { name: 'Git', category: 'Dev/Ops', desc: 'Distributed version control system.', color: '#F05032' },
+  { name: 'Ollama', category: 'AI/LLM', desc: 'Local LLM inference engine. Run models offline.', color: '#FF6B6B' },
+  { name: 'LangChain', category: 'AI/LLM', desc: 'Framework for building AI applications with memory.', color: '#FF6B6B' },
+  { name: 'PyTorch', category: 'AI/LLM', desc: 'Deep learning framework for model training.', color: '#FF6B6B' },
+  { name: 'Transformers', category: 'AI/LLM', desc: 'Hugging Face library for pre-trained models.', color: '#FF6B6B' },
+  { name: 'RAG Pipeline', category: 'AI/LLM', desc: 'Retrieval-Augmented Generation for custom knowledge bases.', color: '#FF6B6B' },
+  { name: 'MCP Server', category: 'MCP', desc: 'Model Context Protocol server deployment.', color: '#9B59B6' },
+  { name: 'Anthropic SDK', category: 'MCP', desc: 'Claude API integration for AI workflows.', color: '#9B59B6' },
+  { name: 'OpenAI API', category: 'MCP', desc: 'GPT model integration and fine-tuning.', color: '#9B59B6' },
+  { name: 'Vector DB', category: 'MCP', desc: 'Pinecone/Chroma for embeddings storage.', color: '#9B59B6' },
+  { name: 'Fedora', category: 'OS', desc: 'Primary workstation. RPM/DNF, SELinux, Cockpit.', color: '#51A2DA' },
+  { name: 'Ubuntu/Debian', category: 'OS', desc: 'Server deployments. APT, systemd, UFW.', color: '#E95420' },
+  { name: 'Arch Linux', category: 'OS', desc: 'Custom builds. Pacman, AUR, bleeding edge.', color: '#1793D1' },
+  { name: 'Windows Server', category: 'OS', desc: 'AD, Exchange, Hyper-V management.', color: '#0078D4' },
+  { name: 'REST APIs', category: 'Integration', desc: 'Custom API development and consumption.', color: '#00D4AA' },
+  { name: 'GraphQL', category: 'Integration', desc: 'Flexible query language for APIs.', color: '#00D4AA' },
+  { name: 'Webhook Automation', category: 'Integration', desc: 'Serverless event-driven integrations.', color: '#00D4AA' },
+  { name: 'Cron/Systemd', category: 'Integration', desc: 'Task scheduling and service management.', color: '#00D4AA' },
 ];
 
-const categories = ['All', 'Red Ops', 'Blue Ops', 'Recon', 'Web/Mobile', 'Dev/Ops'];
+const categories = ['All', 'Red Ops', 'Blue Ops', 'Recon', 'Web/Mobile', 'Dev/Ops', 'AI/LLM', 'MCP', 'OS', 'Integration'];
 
 export default function Armory() {
   const [filter, setFilter] = useState('All');

@@ -4,7 +4,7 @@ const SkillCard = ({ title, icon, level, desc }) => {
   // Helper to determine icon set (Solid vs Brands)
   const getIconClass = (iconName) => {
     if (!iconName) return 'fas fa-circle';
-    const brands = ['python', 'java', 'js', 'react', 'node', 'linux', 'android', 'apple', 'windows', 'docker', 'git'];
+    const brands = ['python', 'java', 'js', 'react', 'node', 'linux', 'android', 'apple', 'windows', 'docker', 'git', 'brain', 'server', 'plug', 'desktop'];
     if (brands.includes(iconName.toLowerCase())) return `fab fa-${iconName}`;
     return `fas fa-${iconName}`;
   };
