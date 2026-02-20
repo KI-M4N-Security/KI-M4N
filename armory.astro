@@ -1,0 +1,276 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SkillCard from '../components/SkillCard.jsx';
+import Armory from '../components/Armory.jsx';
+---
+
+<Layout title="ARMORY | Operator's Toolkit">
+	  		<section id="armory" class="w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tighter uppercase font-mono">
+                    <span class="text-[#00FF00]">></span> Operator's Armory
+                </h2>
+                <p class="text-[#00FF00]/60 font-mono text-lg max-w-2xl mx-auto">
+                    Capabilities forged from <span class="text-white">10+ Years of Command</span> and verified by <span class="text-white">Master's Level Certification</span>.
+                </p>
+            </div>
+
+  <div align="center" class="skill-cards-grid">
+      
+      <div class="skill-card">
+        <SkillCard 
+          title="Ethical Hacking" 
+          icon="skull" 
+          level="MASTER'S VERIFIED" 
+          desc="Advanced exploitation and vulnerability assessment. Certified via IMF Master's Module 2." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="Mobile Security" 
+          icon="mobile" 
+          level="EXPERT" 
+          desc="Android Studio & iOS architecture analysis. Specialized in Smartphone Security." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="Reverse Engineering" 
+          icon="microchip" 
+          level="ADVANCED" 
+          desc="Malware analysis and binary disassembly using C/C++. Master's Module 5." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="SIEM & Forensics" 
+          icon="eye" 
+          level="CERTIFIED" 
+          desc="Log monitoring and digital forensic investigation. " 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="Secure Dev (DevSecOps)" 
+          icon="code" 
+          level="FULLSTACK" 
+          desc="Building resilient architecture in Java & Python. Focus on 'Security by Design'." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="Cyberintelligence (OSINT)" 
+          icon="globe" 
+          level="STRATEGIC" 
+          desc="Threat mapping and open-source reconnaissance. Master's Module." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="Python Warfare" 
+          icon="python" 
+          level="NATIVE" 
+          desc="Custom script development for automated scanning, fuzzing, and exploit delivery." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="Linux / Unix Systems" 
+          icon="terminal" 
+          level="ROOT" 
+          desc="Deep command-line proficiency for system auditing and server hardening." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="AI & LLM Training" 
+          icon="brain" 
+          level="ACTIVE" 
+          desc="Fine-tuning and training custom AI models. Experience with RAG implementations and neural network optimization." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="MCP Servers" 
+          icon="server" 
+          level="DEPLOYED" 
+          desc="Model Context Protocol server architecture. Building secure AI-tool integration pipelines." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="System Integration" 
+          icon="plug" 
+          level="CUSTOM" 
+          desc="Developing proprietary integrations across enterprise systems. API orchestration and automation frameworks." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="OS Architecture" 
+          icon="desktop" 
+          level="MULTI-PLATFORM" 
+          desc="Fedora (primary), Ubuntu, Debian, Arch Linux. Windows Server/Client, macOS. Kernel-level understanding." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <SkillCard 
+          title="Web & SQL Injection" 
+          icon="database" 
+          level="HIGH" 
+          desc="Mitigating SQLi and XSS in HTML5/SQL environments. Database hardening and sanitization." 
+        />
+      </div>
+
+      <div class="skill-card">
+        <div align="center">
+          <div class="text-4xl text-[#00FF00] mb-4 text-center">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white uppercase mb-2 text-center">Tactical Incident Command</h3>
+          <p class="text-[#00FF00]/80 font-mono text-sm leading-relaxed text-center">
+            10+ Years at Securitas S.A. leading teams of 10+ personnel. Proven record of reducing incident resolution under pressure in critical infrastructure environments.
+          </p>
+        </div>
+      </div>
+  </div>
+      </div>
+            </div>
+            <Armory client:visible />
+        </section>
+	</div>
+</Layout>
+
+<style is:global>
+/* Skill Cards Grid Container - 3x3 Layout */
+.skill-cards-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .skill-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Individual Skill Card */
+.skill-card {
+  position: relative;
+  border-radius: 4px;
+  background: rgba(5, 5, 5, 0.29);
+  min-height: 200px;
+  color: white;
+  font-family: 'Fira Code', monospace;
+  border: 2px solid rgb(0, 255, 0);
+  transition: all 0.3s ease;
+}
+
+.skill-card > div {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(0,0,0,0) 100%);
+}
+
+.skill-card:hover {
+  border-color: #00FF00;
+  box-shadow: 0 0 25px -5px #00FF00;
+  transform: translateY(-5px);
+}
+	/* Styles for Armory.jsx cards */
+	.tool-cards {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+	}
+
+	@media (min-width: 1024px) {
+		.tool-cards {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	.tool-card {
+		position: relative;
+		border-radius: 4px;
+		background: rgba(5, 5, 5, 0.29);
+		min-height: 180px;
+		color: white;
+		font-family: 'Fira Code', monospace;
+		border: 2px solid rgb(21, 255, 0);
+		transition: all 0.3s ease;
+	}
+
+	.tool-card > div {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 1rem;
+		background: linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(0,0,0,0) 100%);
+	}
+
+	.tool-card:hover {
+		border-color: var(--tool-color);
+		box-shadow: 0 0 25px -5px var(--tool-color);
+		transform: translateY(-5px);
+	}
+
+	.tool-card h3 {
+		font-size: 1rem;
+		font-weight: bold;
+		color: white;
+		margin-bottom: 0.5rem;
+		text-transform: uppercase;
+		transition: color 0.3s ease;
+	}
+
+	.tool-card:hover h3 {
+		color: var(--tool-color);
+		text-shadow: 0 0 5px var(--tool-color);
+	}
+
+	.tool-card .category {
+		font-size: 0.65rem;
+		border: 1px solid rgba(255,255,255,0.2);
+		color: rgba(255,255,255,0.5);
+		padding: 2px 6px;
+		border-radius: 2px;
+		display: inline-block;
+		margin-bottom: 1rem;
+		transition: all 0.3s ease;
+	}
+
+	.tool-card:hover .category {
+		color: var(--tool-color);
+		border-color: var(--tool-color);
+	}
+
+	.tool-card p {
+		font-size: 0.75rem;
+		line-height: 1.5;
+		color: #aaa;
+		flex-grow: 1;
+	}
+</style>
