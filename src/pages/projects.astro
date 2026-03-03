@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactModal from '../components/ContactModal.jsx';
+---
+
+<Layout title="PROJECTS | KI-M4N Operations">
+  <main class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
+    
+    <!-- PROJECTS: OPERATIONS -->
+    <section id="projects" class="mb-20">
+      <div class="flex justify-center items-center gap-4 mb-12">
+        <h3 class="text-3xl md:text-4xl font-bold text-white font-mono">OPERATIONS</h3>
+      </div>
+
+      <div class="cards mx-auto">
+        <article class="card">
+          <div>
+            <div class="pill-icon"><i class="fas fa-capsules"></i></div>
+            <h2>⚫ KI-MAN SECURITY OPTIONAL: BLACK PILL (RESTRICTED)</h2>
+            <p>
+              Offensive & defensive security engineering<br/>
+              --> Physical + digital convergence<br/>
+              --> Tools built from real operations, not theory<br/><br/>
+              No demos. No marketing.<br/>
+              Reserved for critical infrastructure, crisis response, and high-risk environments.<br/>
+              Access granted by conversation — not clicks.
+            </p>
+            <a href="#contact" data-hover-text=">> INITIATE CONTACT">establish secure comms →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="pill-icon"><i class="fas fa-capsules"></i></div>
+            <h2>WHY I HAVE TO CHOOSE PILL?</h2>
+            <p>
+              Security isn't one-size-fits-all.<br/>
+              Some teams need pressure.<br/>
+              Some need protection.<br/>
+              I don't sell theory — I deploy reality.<br/>
+              Choose how deep you want to go, and I'll handle the rest.
+            </p>
+            <a href="/KI-M4N/#about" data-hover-text=">> ACCESS GRANTED">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="pill-icon"><i class="fas fa-capsules"></i></div>
+            <h2>🔴 KI-MAN / CLAW — RED PILL</h2>
+            <p>
+              <strong>(Offensive / Aggressive)</strong><br/>
+              See how systems actually break.<br/><br/>
+              Built for teams that want the truth — not comfort.
+              This path simulates real adversaries, real pressure, and real failure points.<br/>
+              Expect noise. Expect friction. Expect results.<br/><br/>
+              <strong>Capabilities:</strong><br/>
+              Bug Bounty & Adversarial Testing<br/>
+              Web, Network & Mobile Pentesting<br/>
+              Offensive Tooling & Custom Exploits<br/>
+              Social Engineering & Attack Simulation<br/>
+              <em>Aggressive by design.</em>
+            </p>
+            <a href="#contact" data-hover-text=">> SELECT VECTOR">take the red pill →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="pill-icon"><i class="fas fa-capsules"></i></div>
+            <h2>🔵 KI-MAN / SKIN — BLUE PILL</h2>
+            <p>
+              <strong>(Defensive / Stability)</strong><br/>
+              Control the surface. Secure the core.<br/><br/>
+              A defensive security appliance you deploy, scale, and trust.
+              Designed for visibility, resilience, and long-term stability — without complexity.<br/><br/>
+              Network Visibility & Monitoring<br/>
+              Centralized Logs & Alerting<br/>
+              Defensive Hardening<br/>
+              Small Enterprise & Infrastructure Security<br/>
+              <em>Quiet. Reliable. Always watching.</em>
+            </p>
+            <a href="#contact" data-hover-text=">> SELECT VECTOR">take the blue pill →</a>
+          </div>
+        </article>
+      </div>
+      
+      <br><br>
+
+      <!-- Captive Portal Hook -->
+      <div class="mt-12 p-8 border border-[#00FFFF]/30 bg-[#00FFFF]/5 rounded relative overflow-hidden text-center">
+        <div class="relative z-10">
+          <h4 class="text-2xl font-bold text-[#00FFFF] mb-2 font-mono">CAPTIVE PORTAL SIMULATION</h4>
+          <p class="text-[#00FFFF]/70 mb-6 max-w-2xl mx-auto">
+            Want to see how I can harvest credentials via a rogue ESP32? I built a simulation of the attack vector.
+          </p>
+          <button class="captive-portal-button bg-[#00FFFF]/10 border border-[#00FFFF] text-[#00FFFF] px-6 py-2 hover:bg-[#00FFFF] hover:text-black transition-all font-bold font-mono" data-hover-text=">> OPERATIONAL MODE">
+            LAUNCH SIMULATION
+          </button>
+        </div>
+        <div class="absolute -right-10 -bottom-10 opacity-20 text-[#00FFFF]">
+          <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="mb-20 py-20 border-t border-[#00FF00]/30 flex justify-center">
+      <div class="w-full max-w-4xl bg-black/70 backdrop-blur-sm p-12 rounded-xl border border-[#00FF00]/20 text-center">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight font-mono">ENCRYPTED COMMS</h2>
+        <p class="text-[#00FF00]/60 mb-12 text-lg font-mono">Ready to secure your perimeter? Initiate the handshake.</p>
+        
+        <ContactModal client:load />
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* OPERATIONS CARDS STYLES */
+  .cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 768px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .card {
+    position: relative;
+    border-radius: 4px;
+    background: #050505;
+    min-height: 450px;
+    color: white;
+    font-family: 'Fira Code', monospace;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .card:nth-child(1) { --moon-clr: #808080; }
+  .card:nth-child(2) { --moon-clr: #a65f00; }
+  .card:nth-child(3) { --moon-clr: #9f0712; }
+  .card:nth-child(4) { --moon-clr: #00598a; }
+
+  .card > div {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(0,0,0,0) 100%);
+  }
+
+  .card:hover {
+    border-color: var(--moon-clr);
+    box-shadow: 0 0 25px -5px var(--moon-clr);
+    transform: translateY(-5px);
+  }
+
+  .card .pill-icon {
+    font-size: 2.5rem;
+    color: #444;
+    margin-bottom: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover .pill-icon {
+    color: var(--moon-clr);
+    filter: drop-shadow(0 0 10px var(--moon-clr));
+    transform: scale(1.1);
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+  
+  .card:hover h2 {
+    color: var(--moon-clr);
+    text-shadow: 0 0 5px var(--moon-clr);
+  }
+
+  .card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #aaa;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .card a {
+    margin-top: auto;
+    background-color: transparent;
+    color: var(--moon-clr);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    text-decoration: none;
+    border: 1px solid var(--moon-clr);
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+  }
+
+  .card a:hover {
+    background-color: var(--moon-clr);
+    color: white;
+    box-shadow: 0 0 20px var(--moon-clr);
+  }
+
+  /* Captive Portal Button */
+  .captive-portal-button {
+    position: relative;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  .captive-portal-button[data-hover-text]:hover::before {
+    content: attr(data-hover-text);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    padding: 4px 8px;
+    font-size: 10px;
+    white-space: nowrap;
+    border-radius: 2px;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+    z-index: 10;
+    color: #00FFFF;
+    border: 1px solid #a6ff00;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .card {
+      min-height: auto;
+    }
+    
+    .card h2 {
+      font-size: 0.9rem;
+    }
+    
+    .card p {
+      font-size: 0.75rem;
+    }
+  }
+</style>

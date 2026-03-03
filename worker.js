@@ -24,6 +24,8 @@ const jsonResponse = (data, status = 200) => {
 };
 
 const PRIORITY_CONFIG = {
+  "RED_PILL": { color: 0xFF0000, emoji: "🔴", title: "RED PILL - Offensive" },
+  "BLUE_PILL": { color: 0x0088FF, emoji: "🔵", title: "BLUE PILL - Defensive" },
   "MISSION_CRITICAL": { color: 0xFF0000, emoji: "🚨", title: "MISSION CRITICAL" },
   "SYSTEM_AUDIT": { color: 0xFFA500, emoji: "🔧", title: "SYSTEM AUDIT" },
   "COLLABORATION": { color: 0x0099FF, emoji: "🤝", title: "COLLABORATION" },

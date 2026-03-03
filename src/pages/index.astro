@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Terminal from '../components/Terminal.jsx';
 import HeroTitle from '../components/HeroTitle.jsx';
 import MatrixRain from '../components/MatrixRain.jsx';
+import SocialButtons from '../components/SocialButtons.jsx';
 import ContactModal from '../components/ContactModal.jsx';
 
 ---
@@ -12,8 +13,8 @@ import ContactModal from '../components/ContactModal.jsx';
 		
 		<!-- 1. LANDING: THE TERMINAL -->
 		<section id="home" class="relative h-screen overflow-hidden bg-black mb-32 border-b border-[#00FF00]/30">
-    
-   			<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+     
+   			<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 md:p-8">
 				<div class="flex items-center gap-2 text-[#00FF00] mb-6 tracking-widest text-xs md:text-sm font-bold uppercase font-mono">
 					<span class="w-2 h-2 bg-[#00FF00] rounded-full animate-pulse"></span>
 					System Status: Online // Connected
@@ -29,7 +30,7 @@ import ContactModal from '../components/ContactModal.jsx';
 				<div class="fixed inset-0 h-full w-full bg-black bg-[radial-gradient(#0f380f_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
 				
 
-				<p class="text-xl md:text-2xl text-[#00FF00]/80 mb-12 max-w-3xl leading-relaxed font-mono border-l-4 border-[#00FF00] pl-6 text-left inline-block">
+				<p class="text-lg md:text-2xl text-[#00FF00]/80 mb-12 max-w-3xl leading-relaxed font-mono border-l-4 border-[#00FF00] pl-4 md:pl-6 text-left inline-block">
 					> Multiplatform Developer / Ethical Hacker & Security Specialist.<br/>
 					> <span class="text-white">Bridging the gap between Physical Security & Digital Defense.</span>
 				</p>
@@ -45,6 +46,8 @@ import ContactModal from '../components/ContactModal.jsx';
 					</a>
 				</div>		
 			</div>
+			
+			<SocialButtons client:load />
 		</section>
 
 		<!-- 2. ABOUT: THE OPERATOR -->
@@ -155,37 +158,6 @@ import ContactModal from '../components/ContactModal.jsx';
 				<article class="card">
 					<div>
 						<div class="pill-icon"><i class="fas fa-capsules"></i></div>
-						<h2>⚫ KI-MAN SECURITY OPTIONAL: BLACK PILL (RESTRICTED)</h2>
-						<p>
-							Offensive & defensive security engineering<br/>
-							--> Physical + digital convergence<br/>
-							--> Tools built from real operations, not theory<br/><br/>
-							No demos. No marketing.<br/>
-							Reserved for critical infrastructure, crisis response, and high-risk environments.<br/>
-							Access granted by conversation — not clicks.
-						</p>
-						<a href="#contact" data-hover-text=">> INITIATE CONTACT">establish secure comms →</a>
-					</div>
-				</article>
-
-				<article class="card">
-					<div>
-						<div class="pill-icon"><i class="fas fa-capsules"></i></div>
-						<h2>WHY I HAVE TO CHOOSE PILL?</h2>
-						<p>
-							Security isn’t one-size-fits-all.<br/>
-							Some teams need pressure.<br/>
-							Some need protection.<br/>
-							I don’t sell theory — I deploy reality.<br/>
-							Choose how deep you want to go, and I’ll handle the rest.
-						</p>
-						<a href="#about" data-hover-text=">> ACCESS GRANTED">Read more</a>
-					</div>
-				</article>
-
-				<article class="card">
-					<div>
-						<div class="pill-icon"><i class="fas fa-capsules"></i></div>
 						<h2>🔴 KI-MAN / CLAW — RED PILL</h2>
 						<p>
 							<strong>(Offensive / Aggressive)</strong><br/>
@@ -222,24 +194,6 @@ import ContactModal from '../components/ContactModal.jsx';
 						<a href="#contact" data-hover-text=">> SELECT VECTOR">take the blue pill →</a>
 					</div>
 				</article>
-			</div>
-            <br>
-            <br>
-
-			<!-- Captive Portal Hook -->
-			<div class="mt-12 p-8 border border-[#00FFFF]/30 bg-[#00FFFF]/5 rounded relative overflow-hidden text-center">
-				<div class="relative z-10">
-					<h4 class="text-2xl font-bold text-[#00FFFF] mb-2 font-mono">CAPTIVE PORTAL SIMULATION</h4>
-					<p class="text-[#00FFFF]/70 mb-6 max-w-2xl mx-auto">
-						Want to see how I can harvest credentials via a rogue ESP32? I built a simulation of the attack vector.
-					</p>
-					<button class="captive-portal-button bg-[#00FFFF]/10 border border-[#00FFFF] text-[#00FFFF] px-6 py-2 hover:bg-[#00FFFF] hover:text-black transition-all font-bold font-mono" data-hover-text=">> OPERATIONAL MODE">
-						LAUNCH SIMULATION
-					</button>
-				</div>
-				<div class="absolute -right-10 -bottom-10 opacity-20 text-[#00FFFF]">
-					<svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
-				</div>
 			</div>
 		</section>
 
@@ -278,7 +232,23 @@ import ContactModal from '../components/ContactModal.jsx';
     /* Mobile adjustments for Huge Nav */
     @media (max-width: 768px) {
         .huge-link {
-            font-size: 2rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Hide hover text on mobile to prevent overflow */
+        .huge-link[data-hover-text]:hover::after {
+            display: none;
+        }
+    }
+
+    /* Contact section mobile */
+    @media (max-width: 768px) {
+        #contact > div {
+            padding: 1.5rem !important;
+        }
+        
+        #contact h2 {
+            font-size: 2rem !important;
         }
     }
 
@@ -303,6 +273,22 @@ import ContactModal from '../components/ContactModal.jsx';
 		}
 	}
 
+	/* Mobile card adjustments */
+	@media (max-width: 768px) {
+		.card {
+			min-height: auto;
+			padding-bottom: 1rem;
+		}
+		
+		.card h2 {
+			font-size: 0.9rem;
+		}
+		
+		.card p {
+			font-size: 0.75rem;
+		}
+	}
+
 	.card {
 		position: relative;
 		border-radius: 4px;
@@ -314,10 +300,8 @@ import ContactModal from '../components/ContactModal.jsx';
 		transition: all 0.3s ease;
 
 		/* Colors */
-		&:nth-child(1) { --moon-clr: #808080; } /* Black Pill (Grey glow) */
-		&:nth-child(2) { --moon-clr: #a65f00; } /* Orange */
-		&:nth-child(3) { --moon-clr: #9f0712; } /* Red */
-		&:nth-child(4) { --moon-clr: #00598a; } /* Blue */
+		&:nth-child(1) { --moon-clr: #FF3333; } /* Red Pill */
+		&:nth-child(2) { --moon-clr: #0088FF; } /* Blue Pill */
 
 		& > div {
 			position: relative;

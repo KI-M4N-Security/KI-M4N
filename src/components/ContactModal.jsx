@@ -312,8 +312,39 @@ const ALLIGATOR_ASCII = `
        .     .     .    .    .       .  .     .    .    .  .   .   .     .         .  .     ... .    .    .    .       . .        .    . .   .      .       .     .      .   .   .    .       .      .   .  .  .         .  .  . .               . .    . .    .  .     .  . .     .   . .   .     .  .     
   .  .    .    . .   .     .   . . .      .  .  .     .          .   . .   . .  .       .     .   .     .   .   . . .     .  . .   . .     .   . .    .  .    .     .  .   .    .  .    . . .    .        .      . .  .            . . . .  .  .      .     .   .   . .   .    .     .         . .     .  . `;
 
-export default function ContactModal() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function ContactModal({ isOpen: externalIsOpen, onClose: externalOnClose } = {}) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isControlled = externalIsOpen !== undefined;
+  const isOpen = isControlled ? externalIsOpen : internalIsOpen;
+  
+  const openModal = () => {
+    if (isControlled) {
+      // For controlled mode, we need to pass a function to toggle
+      // But since we can't do that easily, let's handle it in the parent
+      // For now, the parent controls it via isOpen prop
+    } else {
+      setInternalIsOpen(true);
+    }
+  };
+  
+  const closeModal = () => {
+    if (isControlled && externalOnClose) {
+      externalOnClose();
+    } else {
+      setInternalIsOpen(false);
+    }
+  };
+  
+  const toggleModal = (value) => {
+    if (isControlled) {
+      if (value === false || value === true) {
+        // Parent controls the state
+      }
+    } else {
+      setInternalIsOpen(value);
+    }
+  };
+  
   const [displayedAscii, setDisplayedAscii] = useState('');
   
   const [formData, setFormData] = useState({
@@ -348,7 +379,7 @@ export default function ContactModal() {
         setStatusMessage('PAYLOAD TRANSMITTED SUCCESSFULLY');
         setFormData({ email: '', priority: 'MISSION_CRITICAL', message: '' });
         setTimeout(() => {
-          setIsOpen(false);
+          closeModal();
           setSubmitStatus('idle');
           setStatusMessage('');
         }, 2000);
@@ -381,21 +412,23 @@ export default function ContactModal() {
   return (
     <>
       <style>{glowingStyles}</style>
-      {/* Button to open modal */}
-      <button 
-        onClick={() => setIsOpen(true)}
-        className="glowing-btn text-center"
-      >
-        <span className="glowing-txt">
-          INIT<span className="faulty-letter">IATE </span><span>SECURE</span> <span>HANDSHAKE</span>
-        </span>
-      </button>
+      {/* Button to open modal - only show when not controlled by parent */}
+      {!isControlled && (
+        <button 
+          onClick={openModal}
+          className="glowing-btn text-center"
+        >
+          <span className="glowing-txt">
+            INIT<span className="faulty-letter">IATE </span><span>SECURE</span> <span>HANDSHAKE</span>
+          </span>
+        </button>
+      )}
 
       {/* Modal */}
       {isOpen && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
-          onClick={(e) => e.target === e.currentTarget && setIsOpen(false)}
+          onClick={(e) => e.target === e.currentTarget && closeModal()}
         >
           <div className="relative w-full max-w-3xl border border-[#00FF00]/40 bg-black overflow-hidden shadow-[0_0_50px_rgba(0,255,0,0.1)]">
                         
@@ -449,6 +482,8 @@ export default function ContactModal() {
                         onChange={handleInputChange}
                         className="w-full bg-black/80 border border-[#00FF00]/30 p-3 text-[#00FF00] text-sm outline-none cursor-pointer"
                       >
+                        <option value="RED_PILL">🔴 RED_PILL - Offensive/Aggressive</option>
+                        <option value="BLUE_PILL">🔵 BLUE_PILL - Defensive/Stability</option>
                         <option value="MISSION_CRITICAL">MISSION_CRITICAL</option>
                         <option value="SYSTEM_AUDIT">SYSTEM_AUDIT</option>
                         <option value="COLLABORATION">COLLABORATION</option>
@@ -479,7 +514,7 @@ export default function ContactModal() {
                     </button>
                     <button 
                       type="button" 
-                      onClick={() => { setIsOpen(false); setSubmitStatus('idle'); setFormData({ email: '', priority: 'MISSION_CRITICAL', message: '' }); }} 
+                      onClick={() => { closeModal(); setSubmitStatus('idle'); setFormData({ email: '', priority: 'MISSION_CRITICAL', message: '' }); }} 
                       className="px-6 py-3 border border-red-500 text-red-500 uppercase tracking-widest text-xs font-bold hover:bg-red-500/10"
                     >
                       Abort.Comunication

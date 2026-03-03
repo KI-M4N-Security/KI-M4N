@@ -6,6 +6,16 @@ import Armory from '../components/Armory.jsx';
 
 <Layout title="ARMORY | Operator's Toolkit">
 	  		<section id="armory" class="w-full">
+            
+            <!-- new.png Badge at top -->
+            <div style="width: 80px; margin: 0 auto 8px auto;">
+                <img 
+                    src="/KI-M4N/new.png" 
+                    alt="KI-M4N Badge"
+                    style="width: 100%; height: auto; display: block;"
+                />
+            </div>
+            
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tighter uppercase font-mono">
                     <span class="text-[#00FF00]">></span> Operator's Armory
@@ -146,6 +156,7 @@ import Armory from '../components/Armory.jsx';
         </div>
       </div>
   </div>
+
       </div>
             </div>
             <Armory client:visible />
@@ -158,14 +169,21 @@ import Armory from '../components/Armory.jsx';
 .skill-cards-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   margin-bottom: 3rem;
+}
+
+@media (min-width: 480px) {
+  .skill-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 768px) {
   .skill-cards-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -174,7 +192,7 @@ import Armory from '../components/Armory.jsx';
   position: relative;
   border-radius: 4px;
   background: rgba(5, 5, 5, 0.29);
-  min-height: 200px;
+  min-height: 180px;
   color: white;
   font-family: 'Fira Code', monospace;
   border: 2px solid rgb(0, 255, 0);
@@ -187,8 +205,18 @@ import Armory from '../components/Armory.jsx';
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 1.5rem;
+  padding: 1rem;
   background: linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(0,0,0,0) 100%);
+}
+
+@media (min-width: 768px) {
+  .skill-card > div {
+    padding: 1.5rem;
+  }
+  
+  .skill-card {
+    min-height: 200px;
+  }
 }
 
 .skill-card:hover {
@@ -200,13 +228,26 @@ import Armory from '../components/Armory.jsx';
 	.tool-cards {
 		width: 100%;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	@media (min-width: 480px) {
+		.tool-cards {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 768px) {
+		.tool-cards {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
 	@media (min-width: 1024px) {
 		.tool-cards {
 			grid-template-columns: repeat(4, 1fr);
+			gap: 1.5rem;
 		}
 	}
 
